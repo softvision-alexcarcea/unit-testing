@@ -7,6 +7,9 @@ describe('trader', () => {
     trader.lastPrice = 100;
     spyOn(priceService, 'get');
   });
+  beforeEach(() => {
+    trader.container = document.createElement('div');
+  });
   it('should display data in green when prices increase', () => {
     priceService.get.and.returnValue(101);
     trader.update();

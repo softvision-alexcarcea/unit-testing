@@ -13,12 +13,18 @@ module.exports = function(config) {
 		},
 		babelPreprocessor: {
 			options: {
-				presets: ['@babel/preset-env']
+				presets: [[
+					'@babel/preset-env',
+					{ modules: false }
+				]]
 			}
 		},
 		reporters,
 		coverageIstanbulReporter: {},
-		files: ['src/**/*.js', 'test/**/*.js']
+		files: [
+			{ pattern: 'test/**/*.js', type: 'module' },
+			{ pattern: 'src/**/*.js', type: 'module', included: false }
+		]
 	});
 };
 

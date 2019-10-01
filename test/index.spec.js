@@ -1,3 +1,7 @@
+import trader from '../src/index.js';
+import authService from '../src/auth.service.js';
+import priceService from '../src/price.service.js';
+
 describe('trader', () => {
   beforeAll(() => {
     trader.lastPrice = 100;
@@ -5,11 +9,13 @@ describe('trader', () => {
   });
   it('should display data in green when prices increase', () => {
     priceService.get.and.returnValue(101);
-    expect(trader.render()).toBe('green');
+    trader.update();
+    expect(trader.variance).toBe('rising');
   });
   it('should display data in red when prices decrease', () => {
     priceService.get.and.returnValue(99);
-    expect(trader.render()).toBe('red');
+    trader.update();
+    expect(trader.variance).toBe('falling');
   });
 });
 

@@ -26,7 +26,7 @@
   "author": "Alexandru Carcea <alex.carcea@softvision.com>",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.11.2"
+    "http-server": "^14.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
